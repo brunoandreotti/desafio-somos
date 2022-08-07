@@ -11,4 +11,17 @@ class CardsPrismaRepository implements ICardsRepository {
 
     return card
   }
+
+  async findByName(name: string): Promise<Card | null> {
+    const card = await prisma.card.findUnique({
+      where: { name },
+      include: {
+        attribute: true,
+      },
+    })
+
+    return card
+  }
 }
+
+export { CardsPrismaRepository }
