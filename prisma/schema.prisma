@@ -11,20 +11,23 @@ datasource db {
 }
 
 model Card {
-  id   Int    @id @default(autoincrement())
-  name String @unique
+  id           Int        @id @default(autoincrement())
+  name         String     @unique
+  attribute    Attributes @relation(fields: [attributesId], references: [id])
+  attributesId Int @unique
 
   @@map("cards")
 }
 
 model Attributes {
-  id             Int @id @default(autoincrement())
+  id             Int    @id @default(autoincrement())
   hp             Int
   attack         Int
   defense        Int
   specialAttack  Int
   specialDefense Int
   speed          Int
+  card           Card?
 
   @@map("attributes")
 }
