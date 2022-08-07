@@ -2,23 +2,34 @@ import { CardsData } from '../../dtos/CardsData.dto'
 import { ICardsRepository } from '../../repositories/cards/ICardsRepository'
 import { AppError } from '../../utils/AppError'
 
-class CreateCardService {
+class CreateCardsService {
   constructor(private cardRepository: ICardsRepository) {}
 
   async execute({ name, attributes }: CardsData) {
-    if(!name || !attributes) {
+    if (!name || !attributes) {
       throw new AppError('Todos os campos são necessários')
+    }
+
+    if (
+      !attributes.attack ||
+      !attributes.defense ||
+      !attributes.hp ||
+      !attributes.specialAttack ||
+      !attributes.specialDefense ||
+      !attributes.speed
+    ) {
+      throw new AppError('Todos os atributos são necessários')
     }
 
     const cardAlreadyExists = await this.cardRepository.findByName(name)
 
-    if(cardAlreadyExists) {
+    if (cardAlreadyExists) {
       throw new AppError('Carta já existente!')
     }
 
     const cardData: CardsData = {
       name,
-      attributes
+      attributes,
     }
 
     const card = await this.cardRepository.create(cardData)
@@ -27,4 +38,4 @@ class CreateCardService {
   }
 }
 
-export { CreateCardService }
+export { CreateCardsService }

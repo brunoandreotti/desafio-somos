@@ -13,8 +13,8 @@ datasource db {
 model Card {
   id           Int        @id @default(autoincrement())
   name         String     @unique
-  attribute    Attributes @relation(fields: [attributesId], references: [id])
-  attributesId Int @unique
+  attributes   Attributes @relation(fields: [attributesId], references: [id])
+  attributesId Int        @unique
 
   @@map("cards")
 }
@@ -27,7 +27,7 @@ model Attributes {
   specialAttack  Int
   specialDefense Int
   speed          Int
-  card           Card?
+  Card           Card?
 
   @@map("attributes")
 }

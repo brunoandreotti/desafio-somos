@@ -4,9 +4,30 @@ import { CardsData } from '../../dtos/CardsData.dto'
 import { ICardsRepository } from './ICardsRepository'
 
 class CardsPrismaRepository implements ICardsRepository {
-  async create({ name, attributes }: CardsData): Promise<Card> {
+  async create({ name, attributes }: CardsData): Promise<CardsData> {
     const card = await prisma.card.create({
-      data: { name, attribute: { create: attributes } },
+      data: {
+        name,
+        attributes: {
+          create: attributes,
+        },
+      },
+      select: {
+        id: true,
+        name: true,        
+        attributes: {
+          select: {
+            id: false,
+            hp: true,
+            attack: true,
+            defense: true,
+            specialAttack: true,
+            specialDefense: true,
+            speed: true,
+          },
+        },
+        attributesId: false,
+      },
     })
 
     return card
@@ -16,7 +37,7 @@ class CardsPrismaRepository implements ICardsRepository {
     const card = await prisma.card.findUnique({
       where: { name },
       include: {
-        attribute: true,
+        attributes: true,
       },
     })
 
