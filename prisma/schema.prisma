@@ -16,3 +16,15 @@ model Card {
 
   @@map("cards")
 }
+
+model Attributes {
+  id             Int @id @default(autoincrement())
+  hp             Int
+  attack         Int
+  defense        Int
+  specialAttack  Int
+  specialDefense Int
+  speed          Int
+
+  @@map("attributes")
+}
