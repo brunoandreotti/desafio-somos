@@ -1,6 +1,6 @@
 import express from 'express'
 import "express-async-errors"
-import { ErrorMiddleware} from './middlewares/ErrorHandler'
+import { errorMiddleware} from './middlewares/errorHandler'
 import { cardRoutes } from './routes/cardRoutes.routes'
 
 const app = express()
@@ -13,6 +13,6 @@ app.use(express.json())
 app.use('/card', cardRoutes)
 
 //Error Handler
-app.use(ErrorMiddleware)
+app.use(errorMiddleware)
 
 app.listen(PORT, () => console.log('Server is running!'))

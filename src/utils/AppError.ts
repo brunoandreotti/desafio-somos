@@ -1,5 +1,5 @@
 export class AppError {
-  public readonly message!: string
+  public readonly message!: string | string[]
 
   public readonly statusCode!: number 
 
