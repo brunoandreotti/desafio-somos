@@ -3,7 +3,7 @@ import { ICardsRepository } from '../../repositories/cards/ICardsRepository'
 import { AppError } from '../../utils/AppError'
 
 class CreateCardsService {
-  constructor(private cardRepository: ICardsRepository) {}
+  constructor(private cardsRepository: ICardsRepository) {}
 
   async execute({ name, attributes }: CardsData) {
     if (!name || !attributes) {
@@ -21,7 +21,7 @@ class CreateCardsService {
       throw new AppError('Todos os atributos são necessários')
     }
 
-    const cardAlreadyExists = await this.cardRepository.findByName(name)
+    const cardAlreadyExists = await this.cardsRepository.findByName(name)
 
     if (cardAlreadyExists) {
       throw new AppError('Carta já existente!')
@@ -32,7 +32,7 @@ class CreateCardsService {
       attributes,
     }
 
-    const card = await this.cardRepository.create(cardData)
+    const card = await this.cardsRepository.create(cardData)
 
     return card
   }
