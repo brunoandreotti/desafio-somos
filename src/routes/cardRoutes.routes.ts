@@ -7,6 +7,6 @@ import { cardValidationRules } from '../utils/validation/cardValidationRules'
 
 const cardRoutes = Router()
 
-cardRoutes.post('/create', cardValidationRules(), validationMiddleware, CreateCardsController.handle)
+cardRoutes.post('/', cardValidationRules(), validationMiddleware, CreateCardsController.handle)
 
 export { cardRoutes }

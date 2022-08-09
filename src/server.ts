@@ -10,7 +10,7 @@ const PORT = 3000
 app.use(express.json())
 
 //Rotas
-app.use('/card', cardRoutes)
+app.use('/cards', cardRoutes)
 
 //Error Handler
 app.use(errorMiddleware)
