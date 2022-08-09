@@ -33,7 +33,7 @@ class CardsPrismaRepository implements ICardsRepository {
     return card
   }
 
-  async findByName(name: string): Promise<Card | null> {
+  async findByName(name: string): Promise<CardsData | null> {
     const card = await prisma.card.findUnique({
       where: { name },
       include: {
@@ -42,6 +42,17 @@ class CardsPrismaRepository implements ICardsRepository {
     })
 
     return card
+  }
+
+  async findById(id: number): Promise<CardsData | null> {
+      const card = prisma.card.findUnique({
+        where: { id },
+        include: {
+          attributes: true
+        },
+      })
+
+      return card
   }
 }
 

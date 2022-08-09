@@ -5,10 +5,10 @@ import { CreateCardsService } from '../../services/cards/CreateCardsService'
 
 class CreateCardsController {
   static async handle(req: Request, res: Response): Promise<Response> {
-    const { name, attributes }: CardsData = req.body
     const prismaRepository = new CardsPrismaRepository()
     const createCardsService = new CreateCardsService(prismaRepository)
-
+    
+    const { name, attributes }: CardsData = req.body
 
     const cardData: CardsData = {
       name,
