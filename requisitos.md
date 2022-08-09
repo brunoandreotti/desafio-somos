@@ -6,9 +6,9 @@
     - Não deve ser possível criar uma carta sem algum campo obrigatório ✔
   
   # Listagem de cartas
-    - Deve ser possível listar uma carta baseada no seu ID
+    - Deve ser possível listar uma carta baseada no seu ID ✔
     - Deve ser possível listar todas as cartas
-    - Não deve ser possível listar uma carta não existente
+    - Não deve ser possível listar uma carta não existente ✔
     - Deve ser possível listar cartas por filtros (Opcional)
   
   # Alteração de cartas

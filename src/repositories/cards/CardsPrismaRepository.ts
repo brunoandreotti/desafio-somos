@@ -66,6 +66,29 @@ class CardsPrismaRepository implements ICardsRepository {
 
     return card
   }
+
+  findAll(): Promise<CardsData[]> {
+    const cards = prisma.card.findMany({
+      select: {
+        id: true,
+        name: true,
+        attributes: {
+          select: {
+            id: false,
+            hp: true,
+            attack: true,
+            defense: true,
+            specialAttack: true,
+            specialDefense: true,
+            speed: true,
+          },
+        },
+        attributesId: false,
+      },
+    })
+
+    return cards
+  }
 }
 
 export { CardsPrismaRepository }
