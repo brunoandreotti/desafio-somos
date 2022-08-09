@@ -26,7 +26,7 @@ const cardValidationRules = () => {
       .isString()
       .withMessage(`O campo 'attributes.hp' precisa ser um número e ser maior que zero!`)
       .bail()
-      .isNumeric()
+      .isInt({min: 1})
       .withMessage(`O campo 'attributes.hp' precisa ser um número e ser maior que zero!`),
     check('attributes.attack')
       .notEmpty()
@@ -38,7 +38,7 @@ const cardValidationRules = () => {
         `O campo 'attributes.attack' precisa ser um número e ser maior que zero!`,
       )
       .bail()
-      .isNumeric()
+      .isInt({min: 1})
       .withMessage(
         `O campo 'attributes.attack' precisa ser um número e ser maior que zero!`,
       ),
@@ -52,7 +52,7 @@ const cardValidationRules = () => {
         `O campo 'attributes.attributes.defense' precisa ser um número e ser maior que zero!`,
       )
       .bail()
-      .isNumeric()
+      .isInt({min: 1})
       .withMessage(
         `O campo 'attributes.attributes.defense' precisa ser um número e ser maior que zero!`,
       ),
@@ -66,7 +66,7 @@ const cardValidationRules = () => {
         `O campo 'attributes.specialAttack' precisa ser um número e ser maior que zero!`,
       )
       .bail()
-      .isNumeric()
+      .isInt({min: 1})
       .withMessage(
         `O campo 'attributes.specialAttack' precisa ser um número e ser maior que zero!`,
       ),
@@ -80,7 +80,7 @@ const cardValidationRules = () => {
         `O campo 'attributes.attributes.specialDefense' precisa ser um número e ser maior que zero!`,
       )
       .bail()
-      .isNumeric()
+      .isInt({min: 1})
       .withMessage(
         `O campo 'attributes.attributes.specialDefense' precisa ser um número e ser maior que zero!`,
       ),
@@ -94,7 +94,7 @@ const cardValidationRules = () => {
         `O campo 'attributes.speed' precisa ser um número e ser maior que zero!`,
       )
       .bail()
-      .isNumeric()
+      .isInt({min: 1})
       .withMessage(
         `O campo 'attributes.speed' precisa ser um número e ser maior que zero!`,
       ),
