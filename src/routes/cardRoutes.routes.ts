@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { CreateCardsController } from '../controllers/cards/CreateCardsController'
-import { validationMiddleware } from '../middlewares/ValidationMiddleware'
+import { FindCardsByIdController } from '../controllers/cards/FindCardsByIdController'
+import { validationMiddleware } from '../middlewares/validationMiddleware'
 import { cardValidationRules } from '../utils/validation/createCardValidationRules'
 
 
@@ -8,5 +9,6 @@ import { cardValidationRules } from '../utils/validation/createCardValidationRul
 const cardRoutes = Router()
 
 cardRoutes.post('/', cardValidationRules(), validationMiddleware, CreateCardsController.handle)
+cardRoutes.get('/:id', FindCardsByIdController.handle)
 
 export { cardRoutes }

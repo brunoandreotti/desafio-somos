@@ -10,9 +10,11 @@ class FindCardsByIdService {
       throw new AppError('O campo ID é necessário')
     }
 
-    const card = this.cardsRepository.findById(id)
+    const card = await this.cardsRepository.findById(id)
 
-    if(!card) {
+    
+
+    if (!card) {
       throw new AppError('Carta não encontrada!', 404)
     }
 
