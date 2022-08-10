@@ -1,4 +1,5 @@
 export interface AttributesData {
+  id?: number
   hp: number
   attack: number
   defense: number
