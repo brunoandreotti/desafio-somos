@@ -1,6 +1,6 @@
 import { body, check } from 'express-validator'
 
-const cardValidationRules = () => {
+const createCardValidationRules = () => {
   return [
     body('name')
       .notEmpty()
@@ -101,4 +101,4 @@ const cardValidationRules = () => {
   ]
 }
 
-export { cardValidationRules }
+export { createCardValidationRules}
