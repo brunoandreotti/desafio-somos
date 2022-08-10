@@ -19,16 +19,19 @@ class FindAllCardsController {
 
     const quantityOfCards = await countCardsService.execute()
 
-    const parsedPage = page ? parseInt(page as string) : 1
+    const parsedPage = page && page !== '0' ? parseInt(page as string) : 1
     const parsedItems = items ? parseInt(items as string) : quantityOfCards
 
-    const numberOfPages = quantityOfCards / parsedItems
+    const numberOfPages = Math.ceil(quantityOfCards / parsedItems)
 
     const cards = await findAllCardsService.execute(parsedPage, parsedItems)
 
-    return res
-      .status(200)
-      .json({ numberOfPages: Math.ceil(numberOfPages), quantityOfCards, page: parsedPage, cards })
+    return res.status(200).json({
+      numberOfPages,
+      quantityOfCards,
+      page: parsedPage,
+      cards,
+    })
   }
 }
 
