@@ -7,7 +7,7 @@ class CreateCardsController {
   static async handle(req: Request, res: Response): Promise<Response> {
     const prismaRepository = new CardsPrismaRepository()
     const createCardsService = new CreateCardsService(prismaRepository)
-    
+
     const { name, attributes }: CardsData = req.body
 
     const cardData: CardsData = {
