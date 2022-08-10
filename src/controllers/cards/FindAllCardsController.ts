@@ -12,6 +12,7 @@ class FindAllCardsController {
 
     const page = req.query['page']
     const items = req.query['items']
+    const name = req.query['name']
 
     if (Object.keys(req.body).length) {
       throw new AppError('O corpo da requisição precisa ser vazio!')
@@ -21,14 +22,18 @@ class FindAllCardsController {
 
     const parsedPage = page && page !== '0' ? parseInt(page as string) : 1
     const parsedItems = items ? parseInt(items as string) : quantityOfCards
+    const parsedName = name ? (name as string) : ''
 
     const numberOfPages = Math.ceil(quantityOfCards / parsedItems)
 
-    const cards = await findAllCardsService.execute(parsedPage, parsedItems)
+    const cards = await findAllCardsService.execute(
+      parsedPage,
+      parsedItems,
+      parsedName,
+    )
 
     return res.status(200).json({
       numberOfPages,
-      quantityOfCards,
       page: parsedPage,
       cards,
     })

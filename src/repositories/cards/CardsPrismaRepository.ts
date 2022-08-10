@@ -67,10 +67,16 @@ class CardsPrismaRepository implements ICardsRepository {
     return card
   }
 
-  findAll(page: number, items: number): Promise<CardsData[]> {
+  findAll(page: number, items: number, name: string): Promise<CardsData[]> {
     const cards = prisma.card.findMany({
-      skip: items * (page - 1) ?? false,
-      take: items ?? false,
+      skip: items * (page - 1),
+      take: items,
+      where: {
+        name: {
+          contains: name,
+          mode: 'insensitive'
+        }
+      },
       select: {
         id: true,
         name: true,
@@ -89,15 +95,13 @@ class CardsPrismaRepository implements ICardsRepository {
       },
     })
 
-    
-
     return cards
   }
 
   async countCards(): Promise<number> {
-      const quantityOfCards = prisma.card.count()
+    const quantityOfCards = prisma.card.count()
 
-      return quantityOfCards
+    return quantityOfCards
   }
 }
 
