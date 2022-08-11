@@ -1,17 +1,28 @@
-import { body } from 'express-validator'
+import { body, check } from 'express-validator'
 
-const updateCardBodyValidationRule = () => {
-  return [
+const updateCardBodyValidationRule = () => [
+  body('name')
+    .if(body('name').exists())
+    .isString()
+    .withMessage(`O campo 'name' precisa ser uma string`)
+    .bail(),
+
     body('attributes')
-      .notEmpty()
-      .withMessage(`O campo 'attributes' é obrigatório!`)
-      .bail()
-      .isObject()
-      .withMessage(`O campo 'attributes' precisa ser um objeto`)
-      .bail()
-      .not()
-      .contains(['hp']),
-  ]
-}
+    .if(body('attributes').exists())
+    .isObject()
+    .withMessage(`O campo 'attributes' precisa ser um objeto`),
+
+  check('attributes.*')
+    .not()
+    .isString()
+    .withMessage(
+      `Os campos de 'attributes' precisam ser um número e ser maior que zero!`,
+    )
+    .bail()
+    .isInt({ min: 1 })
+    .withMessage(
+      `Os campos de 'attributes' precisam ser um número e ser maior que zero!`,
+    ),
+]
 
 export { updateCardBodyValidationRule }
