@@ -3,7 +3,7 @@ import { CardsPrismaRepository } from '../../repositories/cards/CardsPrismaRepos
 import { DeleteCardsByIdService } from '../../services/cards/DeleteCardsByIdService'
 
 class DeleteCardsByIdController {
-  async handle(req: Request, res: Response): Promise<Response> {
+  static async handle(req: Request, res: Response): Promise<Response> {
     const prismaRepository = new CardsPrismaRepository()
     const deleteCardsByIdService = new DeleteCardsByIdService(prismaRepository)
 

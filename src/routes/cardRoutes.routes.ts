@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { CreateCardsController } from '../controllers/cards/CreateCardsController'
+import { DeleteCardsByIdController } from '../controllers/cards/DeleteCardsByIdController'
 import { FindAllCardsController } from '../controllers/cards/FindAllCardsController'
 import { FindCardsByIdController } from '../controllers/cards/FindCardsByIdController'
 import { UpdateCardsByIdController } from '../controllers/cards/UpdateCardsByIdController'
@@ -38,5 +39,7 @@ cardRoutes.patch(
   validationMiddleware,
   UpdateCardsByIdController.handle,
 )
+
+cardRoutes.delete('/:id', idParamValidationRules(), validationMiddleware, DeleteCardsByIdController.handle)
 
 export { cardRoutes }
