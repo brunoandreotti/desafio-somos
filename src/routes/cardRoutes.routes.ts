@@ -6,7 +6,7 @@ import { UpdateCardsByIdController } from '../controllers/cards/UpdateCardsByIdC
 import { validationMiddleware } from '../middlewares/validationMiddleware'
 import { createCardValidationRules } from '../utils/validation/createCardValidationRules'
 import { idParamValidationRules } from '../utils/validation/idParamValidationRules'
-import { pageAndItemParamsValidationRule } from '../utils/validation/pageAndItemParamsValidationRule'
+import { pageAndItemParamsValidationRule } from '../utils/validation/pageItemAndNameParamsValidationRule'
 import { updateCardBodyValidationRule } from '../utils/validation/updateCardBodyValidationRules'
 
 const cardRoutes = Router()
