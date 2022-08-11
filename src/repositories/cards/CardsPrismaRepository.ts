@@ -136,6 +136,30 @@ class CardsPrismaRepository implements ICardsRepository {
 
     return updatedCard
   }
+
+  async deleteById(id: number): Promise<CardsData> {
+      const deletedCard = await prisma.card.delete({
+        where: { id },
+        select: {
+          id: true,
+          name: true,
+          attributes: {
+            select: {
+              id: false,
+              hp: true,
+              attack: true,
+              defense: true,
+              specialAttack: true,
+              specialDefense: true,
+              speed: true,
+            },
+          },
+          attributesId: false,
+        },
+      })
+
+      return deletedCard
+  }
 }
 
 export { CardsPrismaRepository }
