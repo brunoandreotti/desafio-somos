@@ -24,6 +24,11 @@ cardRoutes.get(
   FindCardsByIdController.handle,
 )
 
-cardRoutes.patch('/:id', UpdateCardsByIdController.handle)
+cardRoutes.patch(
+  '/:id',
+  idParamValidationRules(),
+  validationMiddleware,
+  UpdateCardsByIdController.handle,
+)
 
 export { cardRoutes }

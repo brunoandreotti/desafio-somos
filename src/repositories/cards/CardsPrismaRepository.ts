@@ -112,12 +112,7 @@ class CardsPrismaRepository implements ICardsRepository {
         name: data.name,
         attributes: {
           update: {
-            hp: data.attributes.hp,
-            attack: data.attributes.attack,
-            defense: data.attributes.defense,
-            specialAttack: data.attributes.specialAttack,
-            specialDefense: data.attributes.specialDefense,
-            speed: data.attributes.speed,
+            ...data.attributes
           },
         },
       },
