@@ -105,9 +105,9 @@ class CardsPrismaRepository implements ICardsRepository {
     return cards
   }
 
-  async updateById(data: CardsData): Promise<CardsData> {
+  async updateById(id: number, data: CardsData): Promise<CardsData> {
     const updatedCard = await prisma.card.update({
-      where: { id: data.id },
+      where: { id },
       data: {
         name: data.name,
         attributes: {

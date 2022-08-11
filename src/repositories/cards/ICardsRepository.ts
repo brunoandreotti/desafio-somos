@@ -7,5 +7,5 @@ export interface ICardsRepository {
   findByName(name: string): Promise<CardsData | null>
   findById(id: number): Promise<CardsData | null>
   findAll(page: number, items: number, name: string): Promise<CardsData[]>
-  updateById(data: CardsData): Promise<CardsData>
+  updateById(id: number, data: CardsData): Promise<CardsData>
 }

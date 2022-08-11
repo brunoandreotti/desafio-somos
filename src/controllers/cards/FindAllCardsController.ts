@@ -5,7 +5,7 @@ import { FindAllCardsService } from '../../services/cards/FindAllCardsService'
 import { AppError } from '../../utils/AppError'
 
 class FindAllCardsController {
-  static async handle(req: Request, res: Response) {
+  static async handle(req: Request, res: Response): Promise<Response> {
     const prismaRepository = new CardsPrismaRepository()
     const findAllCardsService = new FindAllCardsService(prismaRepository)
     const countCardsService = new CountCardsService(prismaRepository)
