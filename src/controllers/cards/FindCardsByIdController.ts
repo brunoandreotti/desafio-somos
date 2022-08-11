@@ -4,7 +4,7 @@ import { FindCardsByIdService } from "../../services/cards/FindCardsByIdService"
 import { AppError } from "../../utils/AppError"
 
 class FindCardsByIdController {
-  static async handle(req: Request, res: Response) {
+  static async handle(req: Request, res: Response): Promise<Response> {
     const prismaRepository = new CardsPrismaRepository()
     const findCardsByIdService = new FindCardsByIdService(prismaRepository)
 

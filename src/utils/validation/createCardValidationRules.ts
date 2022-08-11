@@ -7,7 +7,7 @@ const createCardValidationRules = () => {
       .withMessage(`O campo 'name' é obrigatório!`)
       .bail()
       .isString()
-      .withMessage(`O campo 'name' precisa ser uma string!`)
+      .withMessage(`O campo 'name' deve ser uma string!`)
       .bail(),
 
     body('attributes')
@@ -15,7 +15,7 @@ const createCardValidationRules = () => {
       .withMessage(`O campo 'attributes' é obrigatório!`)
       .bail()
       .isObject()
-      .withMessage(`O campo 'attributes' precisa ser um objeto`)
+      .withMessage(`O campo 'attributes' deve ser um objeto`)
       .bail(),
 
     check('attributes.hp')
@@ -24,10 +24,10 @@ const createCardValidationRules = () => {
       .bail()
       .not()
       .isString()
-      .withMessage(`O campo 'attributes.hp' precisa ser um número e ser maior que zero!`)
+      .withMessage(`O campo 'attributes.hp' deve ser um número e ser maior que zero!`)
       .bail()
       .isInt({min: 1})
-      .withMessage(`O campo 'attributes.hp' precisa ser um número e ser maior que zero!`),
+      .withMessage(`O campo 'attributes.hp' deve ser um número e ser maior que zero!`),
     check('attributes.attack')
       .notEmpty()
       .withMessage(`O campo 'attributes.attack' é obrigatório!`)
@@ -35,12 +35,12 @@ const createCardValidationRules = () => {
       .not()
       .isString()
       .withMessage(
-        `O campo 'attributes.attack' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.attack' deve ser um número e ser maior que zero!`,
       )
       .bail()
       .isInt({min: 1})
       .withMessage(
-        `O campo 'attributes.attack' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.attack' deve ser um número e ser maior que zero!`,
       ),
     check('attributes.defense')
       .notEmpty()
@@ -49,12 +49,12 @@ const createCardValidationRules = () => {
       .not()
       .isString()
       .withMessage(
-        `O campo 'attributes.attributes.defense' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.attributes.defense' deve ser um número e ser maior que zero!`,
       )
       .bail()
       .isInt({min: 1})
       .withMessage(
-        `O campo 'attributes.attributes.defense' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.attributes.defense' deve ser um número e ser maior que zero!`,
       ),
     check('attributes.specialAttack')
       .notEmpty()
@@ -63,12 +63,12 @@ const createCardValidationRules = () => {
       .not()
       .isString()
       .withMessage(
-        `O campo 'attributes.specialAttack' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.specialAttack' deve ser um número e ser maior que zero!`,
       )
       .bail()
       .isInt({min: 1})
       .withMessage(
-        `O campo 'attributes.specialAttack' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.specialAttack' deve ser um número e ser maior que zero!`,
       ),
     check('attributes.specialDefense')
       .notEmpty()
@@ -77,12 +77,12 @@ const createCardValidationRules = () => {
       .not()
       .isString()
       .withMessage(
-        `O campo 'attributes.attributes.specialDefense' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.attributes.specialDefense' deve ser um número e ser maior que zero!`,
       )
       .bail()
       .isInt({min: 1})
       .withMessage(
-        `O campo 'attributes.attributes.specialDefense' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.attributes.specialDefense' deve ser um número e ser maior que zero!`,
       ),
     check('attributes.speed')
       .notEmpty()
@@ -91,12 +91,12 @@ const createCardValidationRules = () => {
       .not()
       .isString()
       .withMessage(
-        `O campo 'attributes.speed' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.speed' deve ser um número e ser maior que zero!`,
       )
       .bail()
       .isInt({min: 1})
       .withMessage(
-        `O campo 'attributes.speed' precisa ser um número e ser maior que zero!`,
+        `O campo 'attributes.speed' deve ser um número e ser maior que zero!`,
       ),
   ]
 }

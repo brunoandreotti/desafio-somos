@@ -1,3 +1,4 @@
+import { Card } from '@prisma/client'
 import { prisma } from '../../database/client'
 import { CardsData } from '../../dtos/CardsData.dto'
 import { ICardsRepository } from './ICardsRepository'
@@ -30,6 +31,12 @@ class CardsPrismaRepository implements ICardsRepository {
     })
 
     return card
+  }
+
+  async countCards(): Promise<number> {
+    const quantityOfCards = prisma.card.count()
+
+    return quantityOfCards
   }
 
   async findByName(name: string): Promise<CardsData | null> {
@@ -74,8 +81,8 @@ class CardsPrismaRepository implements ICardsRepository {
       where: {
         name: {
           contains: name,
-          mode: 'insensitive'
-        }
+          mode: 'insensitive',
+        },
       },
       select: {
         id: true,
@@ -98,10 +105,36 @@ class CardsPrismaRepository implements ICardsRepository {
     return cards
   }
 
-  async countCards(): Promise<number> {
-    const quantityOfCards = prisma.card.count()
+  async updateById(id: number, data: CardsData): Promise<CardsData> {
+    const updatedCard = await prisma.card.update({
+      where: { id },
+      data: {
+        name: data.name,
+        attributes: {
+          update: {
+            ...data.attributes
+          },
+        },
+      },
+      select: {
+        id: true,
+        name: true,
+        attributes: {
+          select: {
+            id: false,
+            hp: true,
+            attack: true,
+            defense: true,
+            specialAttack: true,
+            specialDefense: true,
+            speed: true,
+          },
+        },
+        attributesId: false,
+      },
+    })
 
-    return quantityOfCards
+    return updatedCard
   }
 }
 

@@ -7,14 +7,14 @@
   
   # Listagem de cartas
     - Deve ser possível listar uma carta baseada no seu ID ✔
-    - Deve ser possível listar todas as cartas
+    - Deve ser possível listar todas as cartas ✔
     - Não deve ser possível listar uma carta não existente ✔
     - Deve ter paginação (Opcional) ✔
-    - Deve ser possível listar cartas por filtros (Opcional)
+    - Deve ser possível listar cartas por filtros (Opcional) ✔
   
   # Alteração de cartas
-    - Deve ser possível alterar uma carta baseada no seu ID
-    - Não deve ser possível alterar uma carta não existente
+    - Deve ser possível alterar uma carta baseada no seu ID ✔
+    - Não deve ser possível alterar uma carta não existente ✔
   
   # Deleção de cartas (Opcional)
     - Deve ser possível deletar uma carta baseada no seu ID
