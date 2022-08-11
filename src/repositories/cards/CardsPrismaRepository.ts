@@ -1,4 +1,3 @@
-import { Card } from '@prisma/client'
 import { prisma } from '../../database/client'
 import { CardsData } from '../../dtos/CardsData.dto'
 import { ICardsRepository } from './ICardsRepository'
@@ -112,7 +111,7 @@ class CardsPrismaRepository implements ICardsRepository {
         name: data.name,
         attributes: {
           update: {
-            ...data.attributes
+            ...data.attributes,
           },
         },
       },
@@ -138,27 +137,27 @@ class CardsPrismaRepository implements ICardsRepository {
   }
 
   async deleteById(id: number): Promise<CardsData> {
-      const deletedCard = await prisma.card.delete({
-        where: { id },
-        select: {
-          id: true,
-          name: true,
-          attributes: {
-            select: {
-              id: false,
-              hp: true,
-              attack: true,
-              defense: true,
-              specialAttack: true,
-              specialDefense: true,
-              speed: true,
-            },
+    const deletedCard = await prisma.card.delete({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        attributes: {
+          select: {
+            id: false,
+            hp: true,
+            attack: true,
+            defense: true,
+            specialAttack: true,
+            specialDefense: true,
+            speed: true,
           },
-          attributesId: false,
         },
-      })
+        attributesId: false,
+      },
+    })
 
-      return deletedCard
+    return deletedCard
   }
 }
 

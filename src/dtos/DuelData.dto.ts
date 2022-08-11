@@ -1,4 +1,6 @@
 export interface DuelData {
-  playerOneCard: Number
-  playerTwoCard: Number
+  playerOneCardId: number
+  playerTwoCardId: number
+  winner?: string
+  loser?: string
 }
