@@ -17,19 +17,22 @@
     - Não deve ser possível alterar uma carta não existente ✔
   
   # Deleção de cartas (Opcional)
-    - Deve ser possível deletar uma carta baseada no seu ID
-    - Não deve ser possível deletar uma carta não existente
+    - Deve ser possível deletar uma carta baseada no seu ID ✔
+    - Não deve ser possível deletar uma carta não existente ✔
   
   # Comparação de cartas
-    - Deve ser possível comparar os atributos de duas cartas
-    - Deve ser possível identificar qual carta venceu baseada em seus atributos
-    - Deve ser possível identificar qual carta venceu em qual atributo
-    - Deve ser possível armazenar o resultado da comparação
-    - Deve ser possível verificar os resultados das comparações
-    - Não deve ser possível armazenar o resultado da comparação caso seja um empate
+    - Deve ser possível comparar os atributos de duas cartas ✔
+    - Deve ser possível identificar qual carta venceu baseada em seus atributos ✔
+    - Deve ser possível identificar qual carta venceu em qual atributo ✔
+    - Deve ser possível armazenar o resultado da comparação ✔
+    - Deve ser possível verificar os resultados das comparações ✔
+    - Não deve ser possível armazenar o resultado da comparação caso seja um empate ✔
+    - Não deve ser possível fazer a comparação caso uma das cartas não exista ✔
 
 
 **Requisitos Não Funcionais**
 
   # Banco de Dados
    - Colocar uma imagem do diagrama do banco de dados na raiz do projeto
+  # Container
+  - Configurar a aplicação para rodar em um container
