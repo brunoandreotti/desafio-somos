@@ -2,6 +2,7 @@ import express from 'express'
 import "express-async-errors"
 import { errorMiddleware} from './middlewares/errorHandler'
 import { cardRoutes } from './routes/cardRoutes.routes'
+import { duelRoutes } from './routes/duelRoutes.routes'
 
 const app = express()
 
@@ -11,6 +12,7 @@ app.use(express.json())
 
 //Rotas
 app.use('/cards', cardRoutes)
+app.use('/duels', duelRoutes)
 
 //Error Handler
 app.use(errorMiddleware)

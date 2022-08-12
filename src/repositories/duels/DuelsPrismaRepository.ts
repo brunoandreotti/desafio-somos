@@ -8,8 +8,8 @@ class DuelsPrismaRepository implements IDuelsRepository {
       data: {
         playerOneCardId: data.playerOneCardId,
         playerTwoCardId: data.playerTwoCardId,
-        winner: data.winner as 'playerOne' | 'playerTwo',
-        loser: data.loser as 'playerOne' | 'playerTwo',
+        winner: data.winner as number,
+        loser: data.loser as number,
       },
     })
 

@@ -36,8 +36,8 @@ model Duel {
   id              Int    @id @default(autoincrement())
   playerOneCardId Int
   playerTwoCardId Int
-  winner          String
-  loser           String
+  winner          Int
+  loser           Int
 
   @@map("duels")
 }
