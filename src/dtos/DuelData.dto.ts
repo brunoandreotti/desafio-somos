@@ -4,3 +4,8 @@ export interface DuelData {
   winner?: number
   loser?: number
 }
+
+export interface DuelResultData {
+  playerOne: number
+  playerTwo: number
+}

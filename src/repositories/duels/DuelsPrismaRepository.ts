@@ -1,5 +1,5 @@
 import { prisma } from '../../database/client'
-import { DuelData } from '../../dtos/DuelData.dto'
+import { DuelData, DuelResultData } from '../../dtos/DuelData.dto'
 import { IDuelsRepository } from './IDuelsRepository'
 
 class DuelsPrismaRepository implements IDuelsRepository {
@@ -14,6 +14,19 @@ class DuelsPrismaRepository implements IDuelsRepository {
     })
 
     return duel
+  }
+
+  async getResults(): Promise<DuelResultData> {
+      const playerOneWinCounts = await prisma.$queryRaw`SELECT COUNT(winner) FROM duels WHERE playerOneCardId = winner`
+
+      const playerTwoWinCounts = await prisma.$queryRaw`SELECT COUNT(winner) FROM duels WHERE playerTwoCardId = winner`
+
+      const resultData: DuelResultData = {
+        playerOne: playerOneWinCounts as number,
+        playerTwo: playerTwoWinCounts as number
+      }
+
+      return resultData
   }
 }
 
