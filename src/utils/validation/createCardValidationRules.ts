@@ -24,10 +24,14 @@ const createCardValidationRules = () => {
       .bail()
       .not()
       .isString()
-      .withMessage(`O campo 'attributes.hp' deve ser um número e ser maior que zero!`)
+      .withMessage(
+        `O campo 'attributes.hp' deve ser um número e ser maior que zero!`,
+      )
       .bail()
-      .isInt({min: 1})
-      .withMessage(`O campo 'attributes.hp' deve ser um número e ser maior que zero!`),
+      .isInt({ min: 1 })
+      .withMessage(
+        `O campo 'attributes.hp' deve ser um número e ser maior que zero!`,
+      ),
     check('attributes.attack')
       .notEmpty()
       .withMessage(`O campo 'attributes.attack' é obrigatório!`)
@@ -38,7 +42,7 @@ const createCardValidationRules = () => {
         `O campo 'attributes.attack' deve ser um número e ser maior que zero!`,
       )
       .bail()
-      .isInt({min: 1})
+      .isInt({ min: 1 })
       .withMessage(
         `O campo 'attributes.attack' deve ser um número e ser maior que zero!`,
       ),
@@ -52,7 +56,7 @@ const createCardValidationRules = () => {
         `O campo 'attributes.attributes.defense' deve ser um número e ser maior que zero!`,
       )
       .bail()
-      .isInt({min: 1})
+      .isInt({ min: 1 })
       .withMessage(
         `O campo 'attributes.attributes.defense' deve ser um número e ser maior que zero!`,
       ),
@@ -66,13 +70,15 @@ const createCardValidationRules = () => {
         `O campo 'attributes.specialAttack' deve ser um número e ser maior que zero!`,
       )
       .bail()
-      .isInt({min: 1})
+      .isInt({ min: 1 })
       .withMessage(
         `O campo 'attributes.specialAttack' deve ser um número e ser maior que zero!`,
       ),
     check('attributes.specialDefense')
       .notEmpty()
-      .withMessage(`O campo 'attributes.attributes.specialDefense' é obrigatório!`)
+      .withMessage(
+        `O campo 'attributes.attributes.specialDefense' é obrigatório!`,
+      )
       .bail()
       .not()
       .isString()
@@ -80,7 +86,7 @@ const createCardValidationRules = () => {
         `O campo 'attributes.attributes.specialDefense' deve ser um número e ser maior que zero!`,
       )
       .bail()
-      .isInt({min: 1})
+      .isInt({ min: 1 })
       .withMessage(
         `O campo 'attributes.attributes.specialDefense' deve ser um número e ser maior que zero!`,
       ),
@@ -94,11 +100,11 @@ const createCardValidationRules = () => {
         `O campo 'attributes.speed' deve ser um número e ser maior que zero!`,
       )
       .bail()
-      .isInt({min: 1})
+      .isInt({ min: 1 })
       .withMessage(
         `O campo 'attributes.speed' deve ser um número e ser maior que zero!`,
       ),
   ]
 }
 
-export { createCardValidationRules}
+export { createCardValidationRules }
