@@ -157,6 +157,8 @@ class CardsPrismaRepository implements ICardsRepository {
       },
     })
 
+    await prisma.attributes.delete({ where: { id } })
+
     return deletedCard
   }
 }

@@ -13,7 +13,7 @@ datasource db {
 model Card {
   id           Int        @id @default(autoincrement())
   name         String     @unique
-  attributes   Attributes @relation(fields: [attributesId], references: [id])
+  attributes   Attributes @relation(fields: [attributesId], references: [id], onDelete: Cascade)
   attributesId Int        @unique
 
   @@map("cards")
