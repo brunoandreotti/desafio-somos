@@ -17,16 +17,18 @@ class DuelsPrismaRepository implements IDuelsRepository {
   }
 
   async getResults(): Promise<DuelResultData> {
-      const playerOneWinCounts = await prisma.$queryRaw`SELECT COUNT(winner) FROM duels WHERE playerOneCardId = winner`
+    const playerOneWinCounts: any =
+      await prisma.$queryRaw`SELECT COUNT(winner) FROM "public"."duels" WHERE "playerOneCardId" = winner`
 
-      const playerTwoWinCounts = await prisma.$queryRaw`SELECT COUNT(winner) FROM duels WHERE playerTwoCardId = winner`
+    const playerTwoWinCounts: any =
+      await prisma.$queryRaw`SELECT COUNT(winner) FROM "public"."duels" WHERE "playerTwoCardId" = winner`
 
-      const resultData: DuelResultData = {
-        playerOne: playerOneWinCounts as number,
-        playerTwo: playerTwoWinCounts as number
-      }
+    const resultData: DuelResultData = {
+      playerOne: Number(playerOneWinCounts[0].count),
+      playerTwo: Number(playerTwoWinCounts[0].count),
+    }
 
-      return resultData
+    return resultData
   }
 }
 

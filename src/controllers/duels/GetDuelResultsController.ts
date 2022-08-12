@@ -14,3 +14,5 @@ class GetDuelResultsController {
       .json({ playerOne: result.playerOne, playerTwo: result.playerTwo })
   }
 }
+
+export { GetDuelResultsController }

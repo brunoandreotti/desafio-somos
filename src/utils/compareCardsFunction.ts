@@ -82,13 +82,13 @@ export const compareCards = (
     playerTwoWins++
   }
 
-  if (playerOneCardAttributes.defense > playerTwoCardAttributes.defense) {
-    result.details.defense = playerOneCard.id as number
+  if (playerOneCardAttributes.speed > playerTwoCardAttributes.speed) {
+    result.details.speed = playerOneCard.id as number
     playerOneWins++
   } else if (
-    playerOneCardAttributes.defense < playerTwoCardAttributes.defense
+    playerOneCardAttributes.speed < playerTwoCardAttributes.speed
   ) {
-    result.details.defense = playerTwoCard.id as number
+    result.details.speed = playerTwoCard.id as number
     playerTwoWins++
   }
 
