@@ -45,19 +45,19 @@ A aplicação foi construída utilizando TypeScript e Node.JS
 <b>[GET] </b> /cards/?items&page&name - A rota deve exibir todas as cartas cadastrados. Também é possível escolher o número de cartas por página, o número da página atual e filtrar cartas pelo nome.<br>
 
 ```typescript
-  queryParams(opcional): 
+  queryParams(opcional):
     items=number (número de cartas em cada página)
     page=number (número da página atual)
     name=string (filtra o resultado pelo nome da carta)
 
 ```
 
-  Response:
+Response:
 
 ```typescript
   {
     "numberOfPages": number,
-	"page": number, 
+	"page": number,
 	"cards": [
     {
 	  "id": number,
@@ -75,13 +75,14 @@ A aplicação foi construída utilizando TypeScript e Node.JS
 }
 ```
 
-
 <b>[GET] </b> /cards/:id - A rota deve listar uma carta baseado em seu ID.<br>
 
 Request:
+
 ```typescript
 param: number
 ```
+
 Response:
 
 ```typescript
@@ -104,6 +105,7 @@ Response:
 <b>[POST] </b> /cards - A rota deve cadastrar uma carta com as informações passadas no corpo da requisição.<br>
 
 Request:
+
 ```typescript
 {
 name: string,
@@ -113,12 +115,13 @@ attributes: {
 	defense: number,
 	specialAttack: number,
 	specialDefense: number,
-	speed: number	
+	speed: number
   }
 }
 ```
 
 Response:
+
 ```typescript
   {
 	"card": {
@@ -136,10 +139,10 @@ Response:
 }
 ```
 
-
 <b>[PATCH] </b> /cards/:id - A rota deve atualizar uma carta baseado em seu ID com as informações passadas no corpo da requisição. Caso necessário apenas uma informação pode ser atualizada por vez.<br>
 
 Request:
+
 ```typescript
 param: number
 ```
@@ -153,12 +156,13 @@ attributes?: {
 	defense?: number,
 	specialAttack?: number,
 	specialDefense?: number,
-	speed?: number	
+	speed?: number
   }
 }
 ```
 
 Response:
+
 ```typescript
   {
 	"card": {
@@ -184,6 +188,7 @@ param: number
 ```
 
 Response:
+
 ```typescript
   {
 	"deletedCard": {
@@ -201,7 +206,6 @@ Response:
 }
 ```
 
-
 # Validações
 
 Foram adicionadas as seguintes validações nas rotas da aplicação: <br><br>
@@ -210,7 +214,6 @@ Foram adicionadas as seguintes validações nas rotas da aplicação: <br><br>
 - O query param 'items' é opcional e deve ser um número inteiro.
 - O query param 'page' é opcional e deve ser um número inteiro.
 - O query param 'name' é opcional e deve ser uma string.
-
 
 <b>[GET] </b> /cards/:id - A rota deve listar uma carta baseado em seu ID.<br>
 
@@ -282,15 +285,10 @@ http://localhost:3000/
 
 #Obs: Caso queira popular o banco de dados, execute o comando:
 $ npm run seed
-
-#Obs: 
-
 ```
 
-### Ou acesse a aplicação:
-
-Também é possível acessar as rotas da aplicação através da URL:
-https://api-mod-4-resilia.herokuapp.com
+Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: <br> <br>
+<a href="https://insomnia.rest/run/?label=Api-Desafio-Somos&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fbrunoandreotti%2Fdesafio-somos%2Freadme%2FInsomnia-Desafio-Somos.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 
 ### Dependências:
 
