@@ -280,7 +280,7 @@ $ npx prisma migrate dev
 # Inicie o servidor da aplicação
 $ npm start
 
-# Utilize o Insomnia para realizar as requisições nas rotas na URL:
+# Utilize o Insomnia para realizar as requisições nas rotas utilizando a URL:
 http://localhost:3000/
 
 #Obs: Caso queira popular o banco de dados, execute o comando:
