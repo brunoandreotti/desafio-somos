@@ -282,9 +282,6 @@ $ npm start
 
 # Utilize o Insomnia para realizar as requisições nas rotas utilizando a URL:
 http://localhost:3000/
-
-#Obs: Caso queira popular o banco de dados, execute o comando:
-$ npm run seed
 ```
 
 Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: <br> <br>
@@ -293,16 +290,17 @@ Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: 
 ### Dependências:
 
 ```javascript
-"dependencies": {
-    "dotenv-safe": "^8.2.0",
-    "express": "^4.17.3",
-    "moment": "^2.29.1",
-    "sequelize": "^6.17.0",
-    "sqlite3": "^5.0.2"
+ "devDependencies": {
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.19",
+    "prisma": "^4.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
   },
-  "devDependencies": {
-    "jest": "^27.5.1",
-    "nodemon": "^2.0.15",
-    "supertest": "^6.2.2"
+  "dependencies": {
+    "@prisma/client": "^4.2.1",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "express-validator": "^6.14.2"
   }
 ```
