@@ -288,7 +288,7 @@ $ npm run seed
 ```
 
 Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: <br> <br>
-<a href="https://insomnia.rest/run/?label=Api-Desafio-Somos&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fbrunoandreotti%2Fdesafio-somos%2Freadme%2FInsomnia-Desafio-Somos.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+<a href="https://insomnia.rest/run/?label=rotas-desafio-somos&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fbrunoandreotti%2Fdesafio-somos%2Freadme%2FInsomnia-Desafio-Somos.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 
 ### Dependências:
 
