@@ -5,18 +5,20 @@
   <h3 align="center">API Duelo de Cartas Pokémon</h3>
  <br />
   <p align="center">
-     Sumário
-      <p align="center">
+     
+  <p align="center">
   <a href="#sobre"> Sobre </a> |
   <a href="#linguagem-e-framework"> Linguagem e Framework </a> |
   <a href="#pré-requisitos"> Pré-requisitos </a> |
-  <a href="#conhecimentos-praticados"> Conhecimentos praticados </a> |
   <a href="#rotas-da-aplicação"> Rotas da aplicação </a> |
+  <a href="#validações"> Validações </a> |
+	<a href="#rodando-o-projeto"> Rodando o projeto </a> |
+	<a href="#dependências"> Dependências </a> |
   <a href="#tecnologias-utilizadas"> Tecnologias utilizadas </a>      
        <br />
     <br />
     <h1 align="center">
-    <img src="./readme/api.gif" alt="gif-readme">
+    <img src="./readme/desafio-somos.gif" alt="gif-readme">
  </h1>
   </p>
 </p>
@@ -43,6 +45,8 @@ A aplicação foi construída utilizando TypeScript e Node.JS
 ## Cartas
 
 <b>[GET] </b> /cards/?items&page&name - A rota deve exibir todas as cartas cadastrados. Também é possível escolher o número de cartas por página, o número da página atual e filtrar cartas pelo nome.<br>
+
+Request:
 
 ```typescript
   queryParams(opcional):
@@ -206,6 +210,8 @@ Response:
 }
 ```
 
+
+
 # Validações
 
 Foram adicionadas as seguintes validações nas rotas da aplicação: <br><br>
@@ -266,6 +272,9 @@ $ git clone https://github.com/brunoandreotti/desafio-somos.git
 # Acesse a pasta do projeto no terminal
 $ cd desafio-somos
 
+# Abra a pasta do projeto no VSCode
+$ code .
+
 # Instale as dependências do projeto
 $ npm install
 
@@ -274,20 +283,20 @@ $ npm install
 
   Exemplo = "postgresql://usuario:123@localhost:5432/desafio-somos"
 
-# Rode as migration no banco de dados
+# Rode as migrations e popule o banco de dados
 $ npx prisma migrate dev
 
 # Inicie o servidor da aplicação
-$ npm start
+$ npm run dev
 
-# Utilize o Insomnia para realizar as requisições nas rotas utilizando a URL:
+# Utilize o Insomnia para realizar as requisições nas rotas utilizando a URL
 http://localhost:3000/
 ```
 
 Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: <br> <br>
 <a href="https://insomnia.rest/run/?label=rotas-desafio-somos&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fbrunoandreotti%2Fdesafio-somos%2Freadme%2FInsomnia-Desafio-Somos.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 
-### Dependências:
+# Dependências:
 
 ```javascript
  "devDependencies": {
