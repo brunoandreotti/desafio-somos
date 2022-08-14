@@ -39,6 +39,7 @@ A aplicação foi construída utilizando TypeScript e Node.JS
 - Banco de dados para armazenar as cartas e os resultados das comparações
 - Operação de exclusão de cartas
 - Adicionar paginação e filtros na listagem de cartas
+- Configurar a aplicação para rodar dentro de um container
 
 # Rotas da aplicação:
 
