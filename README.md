@@ -347,6 +347,35 @@ $ npm run dev
 http://localhost:3000/
 ```
 
+### Instalando e rodando o projeto com docker:
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/brunoandreotti/desafio-somos.git
+
+# Acesse a pasta do projeto no terminal
+$ cd desafio-somos
+
+# Abra a pasta do projeto no VSCode
+$ code .
+
+# Crie um arquivo .env na raiz do projeto e adicione a url do seu banco de dados
+  DATABASE_URL="postgresql://postgres:1234@postgres:5432/desafio-somos-db?schema=public"
+
+# Rode o docker-compose
+$ docker-compose up -d 
+
+# Apos a criação e execução do container execute o comando para abrir o temrinal do container
+$ docker exec -it desafio-somos-docker /bin/bash
+
+# Rode as migration no banco de dados
+$ npx prisma migrate dev
+
+# Utilize o Insomnia para realizar as requisições nas rotas utilizando a URL
+http://localhost:3000/
+
+
+
 Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: <br> <br>
 <a href="https://insomnia.rest/run/?label=rotas-desafio-somos&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fbrunoandreotti%2Fdesafio-somos%2Freadme%2FInsomnia-Desafio-Somos.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 
