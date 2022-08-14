@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "nodemon ./src/server.ts"
   },
+  "prisma": {
+    "seed": "ts-node ./prisma/seed.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brunoandreotti/desafio-somos.git"
@@ -25,7 +28,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "@prisma/client": "^4.1.1",
+    "@prisma/client": "^4.2.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "express-validator": "^6.14.2"
