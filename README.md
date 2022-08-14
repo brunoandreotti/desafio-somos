@@ -60,19 +60,19 @@ Response:
 
 ```typescript
   {
-    "numberOfPages": number,
-	"page": number,
-	"cards": [
+    numberOfPages: number,
+	page: number,
+	cards: [
     {
-	  "id": number,
-	  "name": string,
-	    "attributes": {
-		  "hp": string,
-		  "attack": string,
-		  "defense": string,
-		  "specialAttack": string,
-		  "specialDefense": string,
-		  "speed": string
+	  id: number,
+	  name: string,
+	    attributes: {
+		  hp: string,
+		  attack: string,
+		  defense: string,
+		  specialAttack: string,
+		  specialDefense: string,
+		  speed: string
           }
 	}
   ]
@@ -91,16 +91,16 @@ Response:
 
 ```typescript
   {
-	"card": {
-		"id": number,
-		"name": string,
-		"attributes": {
-			"hp": number,
-			"attack": number,
-			"defense": number,
-			"specialAttack": number,
-			"specialDefense": number,
-			"speed": number
+	card: {
+		id: number,
+		name: string,
+		attributes: {
+			hp: number,
+			attack: number,
+			defense: number,
+			specialAttack: number,
+			specialDefense: number,
+			speed: number
 		}
 	}
 }
@@ -128,16 +128,16 @@ Response:
 
 ```typescript
   {
-	"card": {
-		"id": number,
-		"name": string,
-		"attributes": {
-			"hp": number,
-			"attack": number,
-			"defense": number,
-			"specialAttack": number,
-			"specialDefense": number,
-			"speed": number
+	card: {
+		id: number,
+		name: string,
+		attributes: {
+			hp: number,
+			attack: number,
+			defense: number,
+			specialAttack: number,
+			specialDefense: number,
+			speed: number
 		}
 	}
 }
@@ -169,16 +169,16 @@ Response:
 
 ```typescript
   {
-	"card": {
-		"id": number,
-		"name": string,
-		"attributes": {
-			"hp": number,
-			"attack": number,
-			"defense": number,
-			"specialAttack": number,
-			"specialDefense": number,
-			"speed": number
+	card: {
+		id: number,
+		name: string,
+		attributes: {
+			hp: number,
+			attack: number,
+			defense: number,
+			specialAttack: number,
+			specialDefense: number,
+			speed: number
 		}
 	}
 }
@@ -195,26 +195,64 @@ Response:
 
 ```typescript
   {
-	"deletedCard": {
-		"id": number,
-		"name": string,
-		"attributes": {
-			"hp": number,
-			"attack": number,
-			"defense": number,
-			"specialAttack": number,
-			"specialDefense": number,
-			"speed": number
+	deletedCard: {
+		id: number,
+		name: string,
+		attributes: {
+			hp: number,
+			attack: number,
+			defense: number,
+			specialAttack: number,
+			specialDefense: number,
+			speed: number
 		}
 	}
 }
 ```
 
+## Duelo de cartas
+<b>[GET] </b> /duels - A rota deve exibir o resultado acumulado de vitórias de cada jogador. <br>
 
+Response:
+```typescript
+{
+	playerOne: number,
+	playerTwo: number
+}
+```
+
+
+<b>[POST] </b> /duels - A rota deve exibir o resultado da comparação entre duas cartas.<br>
+
+Request:
+
+```typescript  
+{
+	playerOneCard: number,
+	playerTwoCard: number
+}
+```
+Response:
+```typescript
+{
+	winner: number,
+	loser: number,
+	details: {
+		hp: number,
+		attack: number,
+		defense: number,
+		specialAttack: number,
+		specialDefense: number,
+		speed: number
+	}
+}
+```
 
 # Validações
 
-Foram adicionadas as seguintes validações nas rotas da aplicação: <br><br>
+Foram adicionadas as seguintes validações nas rotas da aplicação: <br>
+## Cartas
+
 <b>[GET] </b> /cards/?items&page&name <br>
 
 - O query param 'items' é opcional e deve ser um número inteiro.
@@ -255,6 +293,22 @@ Foram adicionadas as seguintes validações nas rotas da aplicação: <br><br>
 
 - O parâmetro ':id' é obrigatório e deve ser um número inteiro.
 - Não é possível deletar uma carta não existente.
+
+## Duelo de cartas
+
+<b>[POST] </b> /duels - A rota deve exibir o resultado da comparação entre duas cartas.<br>
+
+- O campo 'playerOneCard' é obrigatório e deve ser um número inteiro.
+- O campo 'playerOTwoCard' é obrigatório e deve ser um número inteiro.
+- Caso algum atributo tenha o mesmo valor nas duas cartas, ao invés do ID da carta vencedora, será informado o número '-1'
+- Caso caso o número de atributos vitorioso nas duas cartas seja igual a resposta será:
+
+```typescript
+{
+	result: "draw"
+}
+```
+
 
 # Rodando o projeto:
 
