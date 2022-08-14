@@ -359,8 +359,8 @@ $ cd desafio-somos
 # Abra a pasta do projeto no VSCode
 $ code .
 
-# Crie um arquivo .env na raiz do projeto e adicione a url do seu banco de dados
-  DATABASE_URL="postgresql://postgres:1234@postgres:5432/desafio-somos-db?schema=public"
+# Renomeie o arquivo .env.example na raiz do projeto para .env
+  .env.example => .env
 
 # Rode o docker-compose
 $ docker-compose up -d 
@@ -370,6 +370,9 @@ $ docker exec -it desafio-somos-docker /bin/bash
 
 # Rode as migration no banco de dados
 $ npx prisma migrate dev
+
+# Popule o banco de dados
+$ npx prisma db seed
 
 # Utilize o Insomnia para realizar as requisições nas rotas utilizando a URL
 http://localhost:3000/
