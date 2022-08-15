@@ -317,6 +317,7 @@ Foram adicionadas as seguintes validações nas rotas da aplicação: <br>
 
 Antes de começar, você precisará instalar em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [Insomnia](https://insomnia.rest/download). <br> Além disso, é aconselhável ter um editor como o [VSCode](https://code.visualstudio.com/) para trabalhar com o código!
+Obs: Caso queira executar a aplicação como um container, será necessário o [Docker](https://www.docker.com/products/docker-desktop/)
 
 ### Instalando e rodando o projeto:
 
@@ -351,6 +352,8 @@ http://localhost:3000/
 ### Instalando e rodando o projeto com docker:
 
 ```bash
+# Com o Docker instalado um sua máquina
+
 # Clone este repositório
 $ git clone https://github.com/brunoandreotti/desafio-somos.git
 
