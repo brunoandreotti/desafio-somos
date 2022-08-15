@@ -377,7 +377,7 @@ $ npx prisma db seed
 
 # Utilize o Insomnia para realizar as requisições nas rotas utilizando a URL
 http://localhost:3000/
-
+```
 
 
 Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: <br> <br>
@@ -389,15 +389,15 @@ Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: 
  "devDependencies": {
     "@types/express": "^4.17.13",
     "nodemon": "^2.0.19",
-    "prisma": "^4.1.1",
-    "ts-node": "^10.9.1",
+    "prisma": "^4.1.1",    
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "@prisma/client": "^4.2.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
-    "express-validator": "^6.14.2"
+    "express-validator": "^6.14.2",
+		"ts-node": "^10.9.1",
   }
 ```
 
