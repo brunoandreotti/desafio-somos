@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Card {
+  id           Int        @id @default(autoincrement())
+  name         String     @unique
+  attributes   Attributes @relation(fields: [attributesId], references: [id], onDelete: Cascade)
+  attributesId Int        @unique
+
+  @@map("cards")
+}
+
+model Attributes {
+  id             Int   @id @default(autoincrement())
+  hp             Int
+  attack         Int
+  defense        Int
+  specialAttack  Int
+  specialDefense Int
+  speed          Int
+  Card           Card?
+
+  @@map("attributes")
+}
+
+model Duel {
+  id              Int    @id @default(autoincrement())
+  playerOneCardId Int
+  playerTwoCardId Int
+  winner          Int
+  loser           Int
+
+  @@map("duels")
+}
