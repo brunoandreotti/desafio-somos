@@ -338,7 +338,7 @@ $ npm install
 
   Exemplo = "postgresql://usuario:123@localhost:5432/desafio-somos"
 
-# Rode as migrations e popule o banco de dados
+# Execute as migrations e popule o banco de dados
 $ npx prisma migrate dev
 
 # Inicie o servidor da aplicação
@@ -357,19 +357,16 @@ $ git clone https://github.com/brunoandreotti/desafio-somos.git
 # Acesse a pasta do projeto no terminal
 $ cd desafio-somos
 
-# Abra a pasta do projeto no VSCode
-$ code .
-
 # Renomeie o arquivo .env.example na raiz do projeto para .env
-  .env.example => .env
+$ mv .env.example .env
 
-# Rode o docker-compose
+# Execute o docker-compose
 $ docker-compose up -d 
 
-# Apos a criação e execução do container execute o comando para abrir o temrinal do container
+# Apos a criação e execução do container execute o comando para abrir o terminal do container
 $ docker exec -it desafio-somos-docker /bin/bash
 
-# Rode as migration no banco de dados
+# Execute as migrations no banco de dados
 $ npx prisma migrate dev
 
 # Popule o banco de dados
@@ -397,7 +394,7 @@ Caso queira importar as rotas da aplicação para o Insomnia, clique no botão: 
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "express-validator": "^6.14.2",
-		"ts-node": "^10.9.1",
+	"ts-node": "^10.9.1",
   }
 ```
 
